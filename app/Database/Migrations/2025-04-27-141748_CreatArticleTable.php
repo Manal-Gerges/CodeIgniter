@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Database\Migrations;
+
+use CodeIgniter\Database\Migration;
+
+class CreatArticleTable extends Migration
+{
+    public function up()
+    {
+        $this->forge->addField([
+            "id" => 
+            [
+                "type"              => "INT",
+                "null"              => false,
+                "auto_increment"    =>true ,
+            ],
+            "title" => 
+            [
+                "type"              => "VARCHAR",
+                "constraint"        => 128,
+                "nyll"              => false,
+            ],
+            "content" =>
+            [
+                "type"              => "TEXT",
+                "null"              => true,
+
+            ]
+        ]);
+        $this->forge->addPrimaryKey("id");
+        $this->forge->createTable("article");
+    }
+
+    public function down()
+    {
+        //
+    }
+}
